@@ -22,6 +22,7 @@ options have precedence over recipe options.
 #
 # Options:
 #
+#   :app (specify the app name, defaults to pwd name)
 #   :rails_env (specify the rails environment)
 #
 # Example:
