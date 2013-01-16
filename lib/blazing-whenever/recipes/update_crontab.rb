@@ -4,7 +4,8 @@ class Blazing::Recipe::UpdateCrontab < Blazing::Recipe
 
   def run(target_options = {})
     super target_options
-
+ 
+    return if options[:targets] && !Array(options[:targets]).include?(target_options[:target_name])
     info "updating crontab"
     system "bundle exec whenever --update-crontab #{application} --set #{variables}"
   end

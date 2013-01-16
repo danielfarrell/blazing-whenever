@@ -23,11 +23,11 @@ options have precedence over recipe options.
 # Options:
 #
 #   :app (specify the app name, defaults to pwd name)
-#   :rails_env (specify the rails environment)
+#   :targets (specify the targets this recipes runs on, can be array)
 #
 # Example:
 
-recipe :update_crontab, :rails_env => 'production'
+recipe :update_crontab, :targets => :production
 ```
 
 Authors

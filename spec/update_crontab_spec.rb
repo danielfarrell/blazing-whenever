@@ -8,16 +8,18 @@ describe Blazing::Recipe::UpdateCrontab do
 
   describe 'run' do
 
-    before :each do
+    it 'should call whenever for updating crontab with params' do
       @recipe = Blazing::Recipe::UpdateCrontab.new(:app => 'testing', :rails_env => 'development')
       @recipe.stub(:info)
-    end
-
-    it 'calls whenever for updating crontab with params' do
       @recipe.should_receive(:system).with("bundle exec whenever --update-crontab testing --set environment=development")
       @recipe.run
     end
 
+    it 'should return early if targets is set and does not include current target' do
+      @recipe = Blazing::Recipe::UpdateCrontab.new(:app => 'testing', :rails_env => 'development', :targets => :production)
+      @recipe.should_not_receive(:system)
+      @recipe.run(:target_name => :development)
+    end
   end
 
 end
