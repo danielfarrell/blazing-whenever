@@ -17,6 +17,6 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency "blazing", '>= 0.2.15'
+  s.add_dependency "blazing", '>= 0.3.0'
   s.add_dependency "whenever"
 end
