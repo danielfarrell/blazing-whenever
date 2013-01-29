@@ -27,7 +27,7 @@ options have precedence over recipe options.
 #
 # Example:
 
-recipe :update_crontab, :targets => :production
+recipe :update_crontab, :targets => 'production'
 ```
 
 Authors
